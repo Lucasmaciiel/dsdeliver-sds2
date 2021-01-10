@@ -41,7 +41,7 @@ public class OrderService {
 				OrderStatus.PENDING);
 		
 		for(ProductDTO p : dto.getProducts()) {
-			Product product = productRepository.findById(p.getId());
+			Product product = productRepository.getOne(p.getId());
 			order.getProducts().add(product);
 		}
 		order = repository.save(order);
